@@ -1,3 +1,3 @@
 # Michael Munn's portfolio
 
-This is a portfolia using AWS and ReactJS.
+This is a portfolia using AWS, SSH and ReactJS.

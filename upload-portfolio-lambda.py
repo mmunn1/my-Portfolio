@@ -5,7 +5,7 @@ import mimetypes
 
 s3 = boto3.resource('s3')
 
-build_bucket = s3.Bucket('portfoliobuildmm')
+build_bucket = s3.Bucket('portfoliobuild')
 portfolio_bucket = s3.Bucket('portfolio.michael.munn')
 
 portfolio_zip = StringIO.StringIO()

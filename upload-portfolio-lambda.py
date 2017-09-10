@@ -31,8 +31,8 @@ def lambda_handler(event, context):
         with zipfile.ZipFile(portfolio_zip) as myzip:
             for nm in myzip.namelist():
                 obj = myzip.open(nm)
-                portfolio_bucket.upload_fileobj(obj,nm,
-                    ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
+                mimetype = mimetypes.guess_type(nm)
+                portfolio_bucket.upload_fileobj(obj, nm,{'ContentType': mimetype[0]})
                 portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
         topic.publish(Subject='Portfolio Deployed Successfully', Message='Nice!')
         print 'Job Done'
@@ -44,6 +44,5 @@ def lambda_handler(event, context):
     except Exception as err:
         topic.publish(Subject='Portfolio Deploy Failed', Message=str(err))
         raise
-
 
     return 'Hello from Lambda'

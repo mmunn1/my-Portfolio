@@ -3,8 +3,6 @@ import StringIO
 import zipfile
 import mimetypes
 import boto3
-import sys
-
 
 def lambda_handler(event, context):
     s3 = boto3.resource('s3')

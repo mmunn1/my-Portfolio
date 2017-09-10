@@ -12,8 +12,8 @@ def lambda_handler(event, context):
     topic = sns.Topic('arn:aws:sns:us-west-2:423708827346:deployPortfolioTopic')
 
     location = {
-        "bucketName" : 'portfolio.michael.munn',
-        "objectKey" : 'portfoliobuild.zip'
+        'bucketName' : 'portfolio.michael.munn',
+        'objectKey' : 'portfoliobuild.zip'
     }
     try:
         job = event.get('CodePipeline.job')
@@ -44,7 +44,7 @@ def lambda_handler(event, context):
             codepipeline.put_job_success_result(jobId=job['id'])
 
     except Exception as err:
-        topic.publish(Subject="Portfolio Deploy Failed", Message=str(err))
+        topic.publish(Subject='Portfolio Deploy Failed', Message=str(err))
         raise
 
 

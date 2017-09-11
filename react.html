@@ -9,12 +9,10 @@
         margin: 1em;
         padding: 2em;
       }
-
       .error {
         border-color: red;
         background-color: #eebbbb;
       }
-
       .success {
         border-color: blue;
         background-color: #bbbbee;
@@ -32,7 +30,6 @@
       <script type="text/javascript" src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
 
       <script type="text/babel" data-presets="react">
-
         class NameInput extends React.Component {
           constructor(props) {
             super(props);
@@ -46,10 +43,8 @@
 
             this.buttonClicked = this.buttonClicked.bind(this);
           }
-
           buttonClicked(evt) {
             let name = this.refs.nameInput.value;
-
             this.setState({
               message: {
                 type: name ? "success" : "error",
@@ -58,7 +53,6 @@
             });
           }
           render() {
-
             let msg = this.state.message;
             return (
               <div>

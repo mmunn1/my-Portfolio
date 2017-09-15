@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     topic = sns.Topic('arn:aws:sns:us-west-2:423708827346:deployPortfolioTopic')
 
     location = {
-        'bucketName' : 'portfolio.michael.munn',
+        'bucketName' : 'portfoliobuild',
         'objectKey' : 'portfoliobuild.zip'
     }
     try:
@@ -23,10 +23,10 @@ def lambda_handler(event, context):
         print 'Building Portfolio from ' + str(location)
 
         portfolio_bucket = s3.Bucket('portfolio.michael.munn')
-        build_bucket = s3.Bucket('portfoliobuild')
+        build_bucket = s3.Bucket(location['bucketName'])
 
         portfolio_zip = StringIO.StringIO()
-        build_bucket.download_fileobj('portfoliobuild.zip', portfolio_zip)
+        build_bucket.download_fileobj(location['objectKey'], portfolio_zip)
 
         with zipfile.ZipFile(portfolio_zip) as myzip:
             for nm in myzip.namelist():
@@ -44,5 +44,6 @@ def lambda_handler(event, context):
     except Exception as err:
         topic.publish(Subject='Portfolio Deploy Failed', Message=str(err))
         raise
+
 
     return 'Hello from Lambda'

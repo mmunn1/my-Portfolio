@@ -1,8 +1,8 @@
 {
   "name": "my-portfolio",
   "version": "1.0.0",
-  "description": "My Portfolio",
-  "main": "webpack.config.js",
+  "description": "my-Portfolio",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
@@ -12,20 +12,20 @@
     "type": "git",
     "url": "git+https://github.com/mmunn1/my-Portfolio.git"
   },
-  "author": "Michael Munn <michael.munn@gmail.com>",
+  "author": "Michael Mun <michael.munn@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mmunn1/my-Portfolio/issues"
   },
   "homepage": "https://github.com/mmunn1/my-Portfolio#readme",
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-react": "^6.24.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "webpack": "^3.5.6"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.6.1"
   }
 }
